@@ -1,5 +1,8 @@
-﻿@page "/DrinkById"
-
+﻿@page "/DrinkById/{idDrink}"
+@code{
+    [Parameter]
+    public string idDrink { get; set; }
+}
 <h1 class="card-title text-center">@randomdrink.strDrink</h1>
 
 @if (string.IsNullOrWhiteSpace(errorString) == false)
@@ -99,16 +102,19 @@ else
 }
 
 @code {
-
+   
+    
+    
     DrinkModelData randomdrink;
     string errorString;
+
 
     protected override async Task OnInitializedAsync()
     {
 
 
         var client = new HttpClient();
-        var drinkURL = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007";
+        var drinkURL = ($"https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i={idDrink}");
         var drinkResponse = client.GetStringAsync(drinkURL).Result;
         var drinkQuote = JObject.Parse(drinkResponse).GetValue("drinks").ToString();
         var DrinkR = JArray.Parse(drinkQuote).ToString().Replace('[', ' ').Replace(']', ' ').Trim();

@@ -117,7 +117,7 @@ using RestSharp.Deserializers;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/DrinkById")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/DrinkById/{idDrink}")]
     public partial class DrinkById : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -126,18 +126,30 @@ using RestSharp.Deserializers;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 101 "C:\Users\Jamey\source\repos\CocktailDB\Pages\DrinkById.razor"
-       
+#line 2 "C:\Users\Jamey\source\repos\CocktailDB\Pages\DrinkById.razor"
+      
+    [Parameter]
+    public string idDrink { get; set; }
 
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 104 "C:\Users\Jamey\source\repos\CocktailDB\Pages\DrinkById.razor"
+       
+   
+    
+    
     DrinkModelData randomdrink;
     string errorString;
+
 
     protected override async Task OnInitializedAsync()
     {
 
 
         var client = new HttpClient();
-        var drinkURL = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007";
+        var drinkURL = ($"https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i={idDrink}");
         var drinkResponse = client.GetStringAsync(drinkURL).Result;
         var drinkQuote = JObject.Parse(drinkResponse).GetValue("drinks").ToString();
         var DrinkR = JArray.Parse(drinkQuote).ToString().Replace('[', ' ').Replace(']', ' ').Trim();

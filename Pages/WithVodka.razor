@@ -20,9 +20,14 @@
         <tr>
        <td> @item.strDrink</td>
        <td><img class=" img-thumbnail small " src="@item.strDrinkThumb" alt="Alternate Text" /></td>
-       <td> <NavLink class="nav-link" href="DrinkById" >@item.idDrink</NavLink> </td>
+       <td> <a href="@($"/DrinkById/{item.idDrink}")" class="nav-link">@item.idDrink</a> </td>
        </tr>
     }
+
+    @code{
+        
+    }
+    
     
     
 </tbody>
@@ -32,6 +37,8 @@
 
 
         @code {
+         
+
             List<DrinkModelData> randomdrink;
             string errorString;
 
