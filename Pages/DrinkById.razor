@@ -1,0 +1,125 @@
+﻿@page "/DrinkById"
+
+<h1 class="card-title text-center">@randomdrink.strDrink</h1>
+
+@if (string.IsNullOrWhiteSpace(errorString) == false)
+{<div class="h2">@errorString</div>}
+else if (randomdrink is null)
+{ <div class="h4"> Loading ....</div>}
+else
+{
+
+<div class="text-body img-fluid text-center">
+    <img class="img-fluid justify-content-center" src="@randomdrink.strDrinkThumb" alt="Thumb" />
+    <h4 class="alert-info"> You will need a @randomdrink.strGlass for this drink</h4>
+    <p class="bs-popover-auto">It is an @randomdrink.strAlcoholic drink!</p>
+    <br />
+    <p>Category:@randomdrink.strCategory</p>
+    <p>@randomdrink.strDrinkAlternate</p>
+</div>
+
+<div class="text-body img-fluid text-center">
+    <h4 class="h4"> Lets check out the Ingredients and the Measurements</h4>
+    <h6>Instructions for making the drink</h6>
+    <p class="media-body">@randomdrink.strInstructions</p>
+    <p>@randomdrink.strVideo</p>
+    <video controls="controls">
+
+        <source src="@randomdrink.strVideo" type="video/ogg" />
+    </video>
+    <table class=" table tab-content">
+        <thead class="thead-light">
+            <tr>
+                <th>Ingreadients</th>
+                <th>Mesuremetns</th>
+
+            </tr>
+        </thead>
+        <tbody class="tab-content">
+            <tr>
+                <td>@randomdrink.strIngredient1</td>
+                <td>@randomdrink.strMeasure1</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient2</td>
+                <td>@randomdrink.strMeasure2</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient3</td>
+                <td>@randomdrink.strMeasure3</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient4</td>
+                <td>@randomdrink.strMeasure4</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient5</td>
+                <td>@randomdrink.strMeasure5</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient6</td>
+                <td>@randomdrink.strMeasure6</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient6</td>
+                <td>@randomdrink.strMeasure7</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient8</td>
+                <td>@randomdrink.strMeasure8</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient9</td>
+                <td>@randomdrink.strMeasure9</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient10</td>
+                <td>@randomdrink.strMeasure10</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient12</td>
+                <td>@randomdrink.strMeasure12</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient13</td>
+                <td>@randomdrink.strMeasure13</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient14</td>
+                <td>@randomdrink.strMeasure14</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient15</td>
+                <td>@randomdrink.strMeasure15</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+}
+
+@code {
+
+    DrinkModelData randomdrink;
+    string errorString;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+
+        var client = new HttpClient();
+        var drinkURL = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007";
+        var drinkResponse = client.GetStringAsync(drinkURL).Result;
+        var drinkQuote = JObject.Parse(drinkResponse).GetValue("drinks").ToString();
+        var DrinkR = JArray.Parse(drinkQuote).ToString().Replace('[', ' ').Replace(']', ' ').Trim();
+
+        DrinkModelData drink = JsonConvert.DeserializeObject<DrinkModelData>(DrinkR);
+
+        randomdrink = drink;
+    }
+
+
+
+
+
+}

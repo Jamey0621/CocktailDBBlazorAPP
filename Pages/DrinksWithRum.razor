@@ -1,0 +1,55 @@
+﻿@page "/WithRum"
+
+@inject IHttpClientFactory _clientFactory
+
+<h3>Drinks Using Rum</h3>
+
+<table class=" table tab-content">
+    <thead class="thead-light">
+        <tr>
+            <th>Drink Name</th>
+            <th>Drink Pic</th>
+            <th> Drink ID</th>
+
+        </tr>
+    </thead>
+    <tbody class="tab-content">
+
+        @foreach (var item in randomdrink)
+        {
+            <tr>
+                <td> @item.strDrink</td>
+                <td><img src="@item.strDrinkThumb" alt="Alternate Text" /></td>
+                <td> <NavLink class="nav-link" href="DrinkById">@item.idDrink</NavLink> </td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+
+
+
+
+@code {
+    List<DrinkModelData> randomdrink;
+    string errorString;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+
+        var client = new HttpClient();
+        var drinkURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Rum";
+        var drinkResponse = client.GetStringAsync(drinkURL).Result;
+        var drinkQuote = JObject.Parse(drinkResponse).GetValue("drinks").ToString();
+        var DrinkR = JArray.Parse(drinkQuote).ToString();
+
+        List<DrinkModelData> drink = JsonConvert.DeserializeObject<List<DrinkModelData>>(drinkQuote);
+
+
+
+        randomdrink = drink;
+    }
+}
+        }
