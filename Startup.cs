@@ -1,4 +1,4 @@
-using CocktailDB.Data;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -30,7 +30,7 @@ namespace CocktailDB
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
+            
             services.AddHttpClient();
             
         }

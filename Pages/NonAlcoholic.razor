@@ -1,8 +1,5 @@
-﻿@page "/WithRum"
-
-@inject IHttpClientFactory _clientFactory
-
-<h3>Drinks Using Rum</h3>
+﻿@page "/NonAlcoholic"
+<h3>NonAlcoholic</h3>
 
 <table class=" table tab-content">
     <thead class="thead-light">
@@ -19,10 +16,15 @@
         {
             <tr>
                 <td> @item.strDrink</td>
-                <td><img src="@item.strDrinkThumb" alt="Alternate Text" /></td>
+                <td><img class=" img-thumbnail small " src="@item.strDrinkThumb" alt="Alternate Text" /></td>
                 <td> <a href="@($"/DrinkById/{item.idDrink}")" class="nav-link">@item.idDrink</a> </td>
             </tr>
         }
+
+        @code{
+
+        }
+
 
 
     </tbody>
@@ -32,6 +34,8 @@
 
 
 @code {
+
+
     List<DrinkModelData> randomdrink;
     string errorString;
 
@@ -40,7 +44,7 @@
 
 
         var client = new HttpClient();
-        var drinkURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Rum";
+        var drinkURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic";
         var drinkResponse = client.GetStringAsync(drinkURL).Result;
         var drinkQuote = JObject.Parse(drinkResponse).GetValue("drinks").ToString();
         var DrinkR = JArray.Parse(drinkQuote).ToString();
@@ -53,3 +57,4 @@
     }
 }
         }
+

@@ -125,7 +125,7 @@ using RestSharp.Deserializers;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 33 "C:\Users\Jamey\source\repos\CocktailDB\Shared\NavMenu.razor"
+#line 43 "C:\Users\Jamey\source\repos\CocktailDB\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

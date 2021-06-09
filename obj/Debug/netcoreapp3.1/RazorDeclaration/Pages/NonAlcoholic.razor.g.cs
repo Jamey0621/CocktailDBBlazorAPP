@@ -117,15 +117,8 @@ using RestSharp.Deserializers;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 3 "C:\Users\Jamey\source\repos\CocktailDB\Pages\FetchData.razor"
-using CocktailDB.Data;
-
-#line default
-#line hidden
-#nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/fetchdata")]
-    public partial class FetchData : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/NonAlcoholic")]
+    public partial class NonAlcoholic : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -133,19 +126,33 @@ using CocktailDB.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 39 "C:\Users\Jamey\source\repos\CocktailDB\Pages\FetchData.razor"
+#line 36 "C:\Users\Jamey\source\repos\CocktailDB\Pages\NonAlcoholic.razor"
        
-    private WeatherForecast[] forecasts;
+
+
+    List<DrinkModelData> randomdrink;
+    string errorString;
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+
+
+        var client = new HttpClient();
+        var drinkURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic";
+        var drinkResponse = client.GetStringAsync(drinkURL).Result;
+        var drinkQuote = JObject.Parse(drinkResponse).GetValue("drinks").ToString();
+        var DrinkR = JArray.Parse(drinkQuote).ToString();
+
+        List<DrinkModelData> drink = JsonConvert.DeserializeObject<List<DrinkModelData>>(drinkQuote);
+
+
+
+        randomdrink = drink;
     }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private WeatherForecastService ForecastService { get; set; }
     }
 }
 #pragma warning restore 1591

@@ -117,8 +117,8 @@ using RestSharp.Deserializers;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/counter")]
-    public partial class Counter : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/WithTequila")]
+    public partial class DrinksWithTequila : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -126,13 +126,28 @@ using RestSharp.Deserializers;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 9 "C:\Users\Jamey\source\repos\CocktailDB\Pages\Counter.razor"
+#line 35 "C:\Users\Jamey\source\repos\CocktailDB\Pages\DrinksWithTequila.razor"
        
-    private int currentCount = 0;
 
-    private void IncrementCount()
+
+    List<DrinkModelData> randomdrink;
+    string errorString;
+
+    protected override async Task OnInitializedAsync()
     {
-        currentCount++;
+
+
+        var client = new HttpClient();
+        var drinkURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Tequila";
+        var drinkResponse = client.GetStringAsync(drinkURL).Result;
+        var drinkQuote = JObject.Parse(drinkResponse).GetValue("drinks").ToString();
+        var DrinkR = JArray.Parse(drinkQuote).ToString();
+
+        List<DrinkModelData> drink = JsonConvert.DeserializeObject<List<DrinkModelData>>(drinkQuote);
+
+
+
+        randomdrink = drink;
     }
 
 #line default
