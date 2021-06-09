@@ -3,7 +3,29 @@
     [Parameter]
     public string idDrink { get; set; }
 }
-<h1 class="card-title text-center">@randomdrink.strDrink</h1>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<header class="w3-container w3-theme w3-padding" id="myHeader">
+
+    <div class="w3-center w3-dark-grey">
+        <a class="header--logo" href="#0">
+            <img src="/image/COcktailDBLogo.png" alt="CDB">
+
+        </a>
+        <h3>@randomdrink.strDrink</h3>
+
+
+        <div class="w3-padding-32">
+            <a href="/">Back Home</a>
+        </div>
+    </div>
+</header>
+
 
 @if (string.IsNullOrWhiteSpace(errorString) == false)
 {<div class="h2">@errorString</div>}
@@ -25,20 +47,18 @@ else
     <h4 class="h4"> Lets check out the Ingredients and the Measurements</h4>
     <h6>Instructions for making the drink</h6>
     <p class="media-body">@randomdrink.strInstructions</p>
-    <p>@randomdrink.strVideo</p>
-    <video controls="controls">
+     </div>
 
-        <source src="@randomdrink.strVideo" type="video/ogg" />
-    </video>
-    <table class=" table tab-content">
-        <thead class="thead-light">
-            <tr>
+    <div class="w3-responsive w3-card-4">
+    <table class="w3-table w3-striped w3-bordered">
+        <thead>
+            <tr class="w3-theme">
                 <th>Ingreadients</th>
                 <th>Mesuremetns</th>
-
             </tr>
         </thead>
-        <tbody class="tab-content">
+        <tbody>
+        
             <tr>
                 <td>@randomdrink.strIngredient1</td>
                 <td>@randomdrink.strMeasure1</td>
@@ -95,16 +115,17 @@ else
                 <td>@randomdrink.strIngredient15</td>
                 <td>@randomdrink.strMeasure15</td>
             </tr>
-
         </tbody>
     </table>
 </div>
+
+
 }
 
 @code {
-   
-    
-    
+
+
+
     DrinkModelData randomdrink;
     string errorString;
 

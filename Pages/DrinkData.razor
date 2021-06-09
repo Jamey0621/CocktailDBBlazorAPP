@@ -2,7 +2,29 @@
 
 @inject IHttpClientFactory _clientFactory
 
-<h1 class="card-title text-center">Random Drink Just For You</h1>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<header class="w3-container w3-theme w3-padding" id="myHeader">
+
+    <div class="w3-center w3-dark-grey">
+        <a class="header--logo" href="#0">
+            <img src="/image/COcktailDBLogo.png" alt="CDB">
+
+        </a>
+        <h2>Look at you being Risky!!!</h2>
+        <h3>@randomdrink.strDrink</h3>
+
+
+        <div class="w3-padding-32">
+            <a href="/">Back Home</a>
+        </div>
+    </div>
+</header>
+
 
 @if (string.IsNullOrWhiteSpace(errorString) == false)
 {<div class="h2">@errorString</div>}
@@ -11,94 +33,115 @@ else if (randomdrink is null)
 else
 {
 
-<h2 class="alert-info text-lg-center">@randomdrink.strDrink |||||||||| Drink Id:@randomdrink.idDrink</h2>
-<div class="text-body img-fluid text-center">
-    <img class="img-fluid justify-content-center" src="@randomdrink.strDrinkThumb" alt="Thumb" />
-    <h4 class="alert-info"> You will need a @randomdrink.strGlass for this drink</h4>
-    <p class="bs-popover-auto">It is an @randomdrink.strAlcoholic drink!</p>
-    <br />
-    <p>Category:@randomdrink.strCategory</p>
-    <p>@randomdrink.strDrinkAlternate</p>
+<div id="DrinkdataOne" class="w3-row-padding w3-center w3-margin-top">
+    <div class="w3-third">
+        <div class="w3-card w3-container" style="min-height:460px">
+            <h3 class="alert-info">@randomdrink.strDrink</h3><br>
+            <i class=" w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
+            <p>Instructions for making the drink</p>
+            <p>@randomdrink.strInstructions</p>
+
+        </div>
+    </div>
 </div>
 
-<div class="text-body img-fluid text-center" >
-<h4 class="h4"> Lets check out the Ingredients and the Measurements</h4>
-<h6>Instructions for making the drink</h6>
-<p class="media-body">@randomdrink.strInstructions</p>
-<p>@randomdrink.strVideo</p>
-<video controls="controls">
-   
-    <source src="@randomdrink.strVideo" type="video/ogg" />
-</video>
-<table class=" table tab-content">
-    <thead class="thead-light">
-        <tr>
-            <th>Ingreadients</th>
-            <th>Mesuremetns</th>
-            
-        </tr>
-    </thead>
-    <tbody class="tab-content">
-        <tr>
-            <td>@randomdrink.strIngredient1</td>
-            <td>@randomdrink.strMeasure1</td>
-        </tr>
-        <tr>
-            <td>@randomdrink.strIngredient2</td>
-            <td>@randomdrink.strMeasure2</td>
-        </tr>
-        <tr>
-            <td>@randomdrink.strIngredient3</td>
-            <td>@randomdrink.strMeasure3</td>
-        </tr>
-        <tr>
-            <td>@randomdrink.strIngredient4</td>
-            <td>@randomdrink.strMeasure4</td>
-        </tr>
-        <tr>
-            <td>@randomdrink.strIngredient5</td>
-            <td>@randomdrink.strMeasure5</td>
-        </tr>
-        <tr>
-            <td>@randomdrink.strIngredient6</td>
-            <td>@randomdrink.strMeasure6</td>
-        </tr>
-        <tr>
-            <td>@randomdrink.strIngredient6</td>
-            <td>@randomdrink.strMeasure7</td>
-        </tr>
-        <tr>
-            <td>@randomdrink.strIngredient8</td>
-            <td>@randomdrink.strMeasure8</td>
-        </tr>
-        <tr>
-            <td>@randomdrink.strIngredient9</td>
-            <td>@randomdrink.strMeasure9</td>
-        </tr>
-        <tr>
-            <td>@randomdrink.strIngredient10</td>
-            <td>@randomdrink.strMeasure10</td>
-        </tr>
-        <tr>
-            <td>@randomdrink.strIngredient12</td>
-            <td>@randomdrink.strMeasure12</td>
-        </tr>
-        <tr>
-            <td>@randomdrink.strIngredient13</td>
-            <td>@randomdrink.strMeasure13</td>
-        </tr>
-        <tr>
-            <td>@randomdrink.strIngredient14</td>
-            <td>@randomdrink.strMeasure14</td>
-        </tr>
-        <tr>
-            <td>@randomdrink.strIngredient15</td>
-            <td>@randomdrink.strMeasure15</td>
-        </tr>
-      
-    </tbody>
-</table>
+<div id="DrinkdataTwo" class="w3-row-padding w3-center w3-margin-top">
+    <div class="w3-third">
+        <div class="w3-card w3-container" style="min-height:460px">
+
+            <i class=" w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
+            <h4 class="alert-info"> You will need a @randomdrink.strGlass for this drink</h4>
+            <p class="bs-popover-auto">It is an @randomdrink.strAlcoholic drink!</p>
+            <br />
+            <p>Category:@randomdrink.strCategory</p>
+            <p>@randomdrink.strDrinkAlternate</p>
+
+        </div>
     </div>
+</div>
+
+<div id="DrinkdataPhot" class="w3-row-padding w3-center w3-margin-top">
+    <div class="w3-third">
+        <div class="w3-card w3-container" style="min-height:460px">
+           <i class=" w3-margin-bottom w3-text-theme" style="font-size:120px"><img src="@randomdrink.strDrinkThumb" alt="Alternate Text" /></i>
+           </div>
+    </div>
+</div>
+<div class="text-body img-fluid text-center">
+    <h4 class="h4"> Lets check out the Ingredients and the Measurements</h4>
+</div>
+
+<div class="w3-responsive w3-card-4">
+    <table class="w3-table w3-striped w3-bordered text-center">
+        <thead>
+            <tr class="w3-theme">
+                <th>Ingreadients</th>
+                <th>Mesuremetns</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>@randomdrink.strIngredient1</td>
+                <td>@randomdrink.strMeasure1</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient2</td>
+                <td>@randomdrink.strMeasure2</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient3</td>
+                <td>@randomdrink.strMeasure3</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient4</td>
+                <td>@randomdrink.strMeasure4</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient5</td>
+                <td>@randomdrink.strMeasure5</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient6</td>
+                <td>@randomdrink.strMeasure6</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient6</td>
+                <td>@randomdrink.strMeasure7</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient8</td>
+                <td>@randomdrink.strMeasure8</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient9</td>
+                <td>@randomdrink.strMeasure9</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient10</td>
+                <td>@randomdrink.strMeasure10</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient12</td>
+                <td>@randomdrink.strMeasure12</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient13</td>
+                <td>@randomdrink.strMeasure13</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient14</td>
+                <td>@randomdrink.strMeasure14</td>
+            </tr>
+            <tr>
+                <td>@randomdrink.strIngredient15</td>
+                <td>@randomdrink.strMeasure15</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
 }
 
 @code {
@@ -116,7 +159,7 @@ else
         var drinkQuote = JObject.Parse(drinkResponse).GetValue("drinks").ToString();
         var DrinkR = JArray.Parse(drinkQuote).ToString().Replace('[', ' ').Replace(']', ' ').Trim();
 
-       DrinkModelData drink = JsonConvert.DeserializeObject<DrinkModelData>(DrinkR);
+        DrinkModelData drink = JsonConvert.DeserializeObject<DrinkModelData>(DrinkR);
 
         randomdrink = drink;
     }

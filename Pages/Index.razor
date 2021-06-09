@@ -1,16 +1,14 @@
 ﻿@page "/"
 
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
-<style>
-    body{
-        background: light grey;
-    }
+<link href="/css/StyleSheet.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
-</style>
 <!-- notification for small viewports and landscape oriented smartphones -->
 
 
@@ -42,7 +40,7 @@
             <p>Cool huh? Ok, enough teasing around..</p>
             <p>Check me out</p>
             <a href="#"><i class="fab fa-linkedin">Linkedin</i></a>
-            <a href="https://github.com/Jamey0621">Github</a><i class="fab fa-github-square"></i>
+            <a href="https://github.com/Jamey0621"><i class="fab fa-github-square">Github</i></a>
             <a href="#"><i class="fas fa-code">MySoonToBeWebSite</i></a>
         </div>
         <footer class="w3-container w3-theme-l1">
@@ -50,71 +48,91 @@
         </footer>
     </div>
 </div>
+<div class="flex-container ">
+    <div id="column" class="w3-row-padding w3-center w3-margin-top">
+        <div class="w3-third">
+            <div class="w3-card w3-container" style="min-height:460px">
+                <h3>Drinks With Vodka</h3><br>
+                <i class=" w3-margin-bottom w3-text-theme" style="font-size:120px"><img src="/image/Vodka.jpg" alt="Alternate Text" /></i>
+                <p>List of drinks made with</p>
+                <p>Vodka</p>
+                <a href="/ByIngredient">Click Me</a>
+            </div>
+        </div>
 
-<div class="w3-row-padding w3-center w3-margin-top">
-    <div class="w3-third">
-        <div class="w3-card w3-container" style="min-height:460px">
-            <h3>Drinks With Vodka</h3><br>
-            <i class=" w3-margin-bottom w3-text-theme" style="font-size:120px"><img src="/image/Vodka.jpg" alt="Alternate Text" /></i>
-            <p>List of drinks made with</p>
-            <p>Vodka</p>
-            <a href="/ByIngredient">Click Me</a>
+        <div id="column" class="w3-third">
+            <div class="w3-card w3-container" style="min-height:460px">
+                <h3>Drinks Made with Rum</h3><br>
+                <i class=" w3-margin-bottom w3-text-theme" style="font-size:120px"><img class="justify-content-around" src="/image/Rum.jpg" alt="Alternate Text" /></i>
+                <p>List of drinks made with</p>
+                <p>Rum</p>
+                <a href="/WithRum">Click Me</a>
+            </div>
         </div>
-    </div>
+        <div id="column" class="w3-third">
+            <div class="w3-card w3-container" style="min-height:460px">
+                <h3>Drinks Made with Tequila </h3><br>
+                <i class=" w3-margin-bottom w3-text-theme" style="font-size:120px"><img class="align-items-md-center small" src="/image/Tequila.jpg" alt="Alternate Text" /></i>
+                <p>List of drinks made with</p>
+                <p>Tequila</p>
+                <a href="/WithTequila">Click Me</a>
+            </div>
+        </div>
+        <div id="column" class="w3-third">
+            <div class="w3-card w3-container" style="min-height:460px">
+                <h3>Drinks Made with Whisky</h3><br>
+                <i class=" w3-margin-bottom w3-text-theme" style="font-size:120px"><img class="small" src="/image/Whisky.jpg" alt="Alternate Text" /></i>
+                <p>List of drinks made with</p>
+                <p>Whisky</p>
+                <a href="/WithWhisky">Click Me</a>
+            </div>
+        </div>
+        <div id="last" class="w3-third">
+            <div class="w3-card w3-container" style="min-height:460px">
 
-    <div class="w3-third">
-        <div class="w3-card w3-container" style="min-height:460px">
-            <h3>Drinks Made with Rum</h3><br>
-            <i class=" w3-margin-bottom w3-text-theme" style="font-size:120px"><img class="justify-content-around" src="/image/Rum.jpg" alt="Alternate Text" /></i>
-            <p>List of drinks made with</p>
-            <p>Rum</p>
-            <a href="/WithRum">Click Me</a>
+                <i class="fas fa-cocktail  w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
+                <h5>
+                    Remember to Drink Responsibly!
+                </h5>
+            </div>
         </div>
-    </div>
-    <div class="w3-third">
-        <div class="w3-card w3-container" style="min-height:460px">
-            <h3>Drinks Made with Tequila </h3><br>
-            <i class=" w3-margin-bottom w3-text-theme" style="font-size:120px"><img class="align-items-md-center small" src="/image/Tequila.jpg" alt="Alternate Text" /></i>
-            <p>List of drinks made with</p>
-            <p>Tequila</p>
-            <a href="/WithTequila">Click Me</a>
+        <div id="last" class="w3-third">
+            <div class="w3-card w3-container" style="min-height:460px">
+                <h3>Drinks Made For The DD</h3><br>
+                <i class="fa fa-smile-o w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
+                <p>List of drinks made with</p>
+                <p>No Achohol</p>
+                <a href="/ByIngredient">Click Me</a>
+            </div>
         </div>
-    </div>
-    <div class="w3-third">
-        <div class="w3-card w3-container" style="min-height:460px">
-            <h3>Drinks Made with Whisky</h3><br>
-            <i class=" w3-margin-bottom w3-text-theme" style="font-size:120px"><img class="small" src="/image/Whisky.jpg" alt="Alternate Text" /></i>
-            <p>List of drinks made with</p>
-            <p>Whisky</p>
-            <a href="/WithWhisky">Click Me</a>
-        </div>
-    </div>
-    <div class="w3-third">
-        <div class="w3-card w3-container" style="min-height:460px">
-            <h3>Drinks Made For The DD</h3><br>
-            <i class="fa fa-smile-o w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-            <p>List of drinks made with</p>
-            <p>No Achohol</p>
-            <a href="/ByIngredient">Click Me</a>
-        </div>
-    </div>
 
-    <div class="w3-row w3-border w3-center">
-        <div class="w3-half w3-container w3-hover-light-grey w3-border">
-            <h5>Lets Get Random</h5>
-            <p>If Your Fillin Lucky Try Out A Random Drink!</p>
-            <img class=" card-img w3-half" src="/image/Crazy.jpg" alt="Alternate Text" />
-            <a href="/RandomDrink">Lets Get Intresting</a>
-        </div>
-        <div class="w3-half w3-container w3-dark-grey">
-            <h5>Remember to Drink Responsible!</h5>
-        </div>
-    </div>
-    <br>
+        <div id="crazy" class="w3-row w3-border w3-center">
+            <div class="w3-container w3-hover-light-grey w3-border">
+                <h5>Lets Get Random</h5>
+                <p>If Your Fillin Lucky Try Out A Random Drink!</p>
+                <h3><a id="Yes" href="/RandomDrink">Lets Get Interesting!!!</a></h3>
+            </div>
 
+        </div>
+        <br>
+    </div>
 </div>
+<footer class="w3-container w3-theme-dark w3-padding-16">
+    <div style="position:relative;bottom:55px;" class="w3-tooltip w3-right">
+        <span class="w3-text w3-theme-light w3-padding">Go To Top</span>
+        <a class="w3-text-white" href="#myHeader">
+            <span class="w3-xlarge">
+                <i class="fa fa-chevron-circle-up"></i>
+            </span>
+        </a>
+    </div>
+    <p>
+        Remember to look Jamey up     <a href="#"><i class="fab fa-linkedin">Linkedin</i></a>
+        <a href="https://github.com/Jamey0621"><i class="fab fa-github-square">Github</i></a>
+        <a href="#"><i class="fas fa-code">MySoonToBeWebSite</i></a>
+    </p>
+</footer>
 
 
-       
-        
-     
+
+

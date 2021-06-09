@@ -1,1 +1,40 @@
-﻿
+﻿.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 10px 10px 10px;
+    padding: 4px 7px 2px 4px;
+}
+
+#crazy {
+    align-content: center;
+}
+
+@keyframes example {
+    0% {
+        background-color: red;
+    }
+
+    25% {
+        background-color: yellow;
+    }
+
+    50% {
+        background-color: blue;
+    }
+
+    100% {
+        background-color: green;
+    }
+}
+
+/* The element to apply the animation to */
+#Yes {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background-color: red;
+    animation-name: example;
+    animation-duration: 10s;
+}

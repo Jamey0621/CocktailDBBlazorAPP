@@ -126,35 +126,33 @@ using RestSharp.Deserializers;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 39 "C:\Users\Jamey\source\repos\CocktailDB\Pages\WithVodka.razor"
-               
-         
-
-            List<DrinkModelData> randomdrink;
-            string errorString;
-
-            protected override async Task OnInitializedAsync()
-            {
+#line 49 "C:\Users\Jamey\source\repos\CocktailDB\Pages\WithVodka.razor"
+       
 
 
-                var client = new HttpClient();
-                var drinkURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka";
-                var drinkResponse = client.GetStringAsync(drinkURL).Result;
-                var drinkQuote = JObject.Parse(drinkResponse).GetValue("drinks").ToString();
-                var DrinkR = JArray.Parse(drinkQuote).ToString();
+    List<DrinkModelData> randomdrink;
+    string errorString;
 
-                List<DrinkModelData> drink = JsonConvert.DeserializeObject<List<DrinkModelData>>(drinkQuote);
+    protected override async Task OnInitializedAsync()
+    {
 
 
+        var client = new HttpClient();
+        var drinkURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka";
+        var drinkResponse = client.GetStringAsync(drinkURL).Result;
+        var drinkQuote = JObject.Parse(drinkResponse).GetValue("drinks").ToString();
+        var DrinkR = JArray.Parse(drinkQuote).ToString();
 
-                randomdrink = drink;
-            }
-        
+        List<DrinkModelData> drink = JsonConvert.DeserializeObject<List<DrinkModelData>>(drinkQuote);
+
+
+
+        randomdrink = drink;
+    }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpClientFactory _clientFactory { get; set; }
     }
 }
 #pragma warning restore 1591

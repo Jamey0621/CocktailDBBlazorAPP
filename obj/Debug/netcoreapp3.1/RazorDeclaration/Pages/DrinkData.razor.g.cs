@@ -126,7 +126,7 @@ using RestSharp.Deserializers;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 104 "C:\Users\Jamey\source\repos\CocktailDB\Pages\DrinkData.razor"
+#line 147 "C:\Users\Jamey\source\repos\CocktailDB\Pages\DrinkData.razor"
        
 
     DrinkModelData randomdrink;
@@ -142,7 +142,7 @@ using RestSharp.Deserializers;
         var drinkQuote = JObject.Parse(drinkResponse).GetValue("drinks").ToString();
         var DrinkR = JArray.Parse(drinkQuote).ToString().Replace('[', ' ').Replace(']', ' ').Trim();
 
-       DrinkModelData drink = JsonConvert.DeserializeObject<DrinkModelData>(DrinkR);
+        DrinkModelData drink = JsonConvert.DeserializeObject<DrinkModelData>(DrinkR);
 
         randomdrink = drink;
     }

@@ -135,11 +135,11 @@ using RestSharp.Deserializers;
 #line hidden
 #nullable disable
 #nullable restore
-#line 104 "C:\Users\Jamey\source\repos\CocktailDB\Pages\DrinkById.razor"
+#line 125 "C:\Users\Jamey\source\repos\CocktailDB\Pages\DrinkById.razor"
        
-   
-    
-    
+
+
+
     DrinkModelData randomdrink;
     string errorString;
 
