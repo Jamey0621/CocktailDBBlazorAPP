@@ -126,7 +126,7 @@ using RestSharp.Deserializers;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 147 "C:\Users\Jamey\source\repos\CocktailDB\Pages\DrinkData.razor"
+#line 128 "C:\Users\Jamey\source\repos\CocktailDB\Pages\DrinkData.razor"
        
 
     DrinkModelData randomdrink;
@@ -155,7 +155,6 @@ using RestSharp.Deserializers;
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpClientFactory _clientFactory { get; set; }
     }
 }
 #pragma warning restore 1591

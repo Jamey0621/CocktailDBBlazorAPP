@@ -1,12 +1,13 @@
 ﻿@page "/RandomDrink"
 
-@inject IHttpClientFactory _clientFactory
+
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+
 
 <header class="w3-container w3-theme w3-padding" id="myHeader">
 
@@ -16,7 +17,7 @@
 
         </a>
         <h2>Look at you being Risky!!!</h2>
-        <h3>@randomdrink.strDrink</h3>
+        <h3>The name of your drink is @randomdrink.strDrink</h3>
 
 
         <div class="w3-padding-32">
@@ -33,39 +34,19 @@ else if (randomdrink is null)
 else
 {
 
-<div id="DrinkdataOne" class="w3-row-padding w3-center w3-margin-top">
-    <div class="w3-third">
-        <div class="w3-card w3-container" style="min-height:460px">
-            <h3 class="alert-info">@randomdrink.strDrink</h3><br>
-            <i class=" w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-            <p>Instructions for making the drink</p>
-            <p>@randomdrink.strInstructions</p>
-
-        </div>
-    </div>
+<div class="text-body img-fluid text-center">
+    <img class="img-fluid justify-content-center" src="@randomdrink.strDrinkThumb" alt="Thumb" />
+    <h4 class="alert-info"> You will need a @randomdrink.strGlass for this drink</h4>
+    <p class="bs-popover-auto">It is an @randomdrink.strAlcoholic drink!</p>
+    <br />
+    <p>Category:@randomdrink.strCategory</p>
+    <p>@randomdrink.strDrinkAlternate</p>
 </div>
 
-<div id="DrinkdataTwo" class="w3-row-padding w3-center w3-margin-top">
-    <div class="w3-third">
-        <div class="w3-card w3-container" style="min-height:460px">
-
-            <i class=" w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-            <h4 class="alert-info"> You will need a @randomdrink.strGlass for this drink</h4>
-            <p class="bs-popover-auto">It is an @randomdrink.strAlcoholic drink!</p>
-            <br />
-            <p>Category:@randomdrink.strCategory</p>
-            <p>@randomdrink.strDrinkAlternate</p>
-
-        </div>
-    </div>
-</div>
-
-<div id="DrinkdataPhot" class="w3-row-padding w3-center w3-margin-top">
-    <div class="w3-third">
-        <div class="w3-card w3-container" style="min-height:460px">
-           <i class=" w3-margin-bottom w3-text-theme" style="font-size:120px"><img src="@randomdrink.strDrinkThumb" alt="Alternate Text" /></i>
-           </div>
-    </div>
+<div class="text-body img-fluid text-center">
+    <h4 class="h4"> Lets check out the Ingredients and the Measurements</h4>
+    <h6>Instructions for making the drink</h6>
+    <p class="media-body">@randomdrink.strInstructions</p>
 </div>
 <div class="text-body img-fluid text-center">
     <h4 class="h4"> Lets check out the Ingredients and the Measurements</h4>

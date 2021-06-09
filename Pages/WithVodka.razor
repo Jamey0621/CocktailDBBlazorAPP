@@ -5,11 +5,18 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+<style>
+    #table_drink {
+        width: 200px;
+        height: 200px;
+    }
+    
+</style>
 
 <header class="w3-container w3-theme w3-padding" id="myHeader">
 
     <div class="w3-center w3-dark-grey">
-        <a class="header--logo"  href="#0">
+        <a class="header--logo" href="#0">
             <img src="/image/COcktailDBLogo.png" alt="CDB">
 
         </a>
@@ -21,7 +28,6 @@
         </div>
     </div>
 </header>
-
 
 <div class="w3-responsive w3-card-4">
     <table class="w3-table w3-striped w3-bordered">
@@ -37,7 +43,7 @@
             {
                 <tr>
                     <td> @item.strDrink</td>
-                    <td><img class=" img-thumbnail small " id="table_drink" src="@item.strDrinkThumb" alt="Alternate Text" /></td>
+                    <td><img  class=" img-thumbnail small " id="table_drink" src="@item.strDrinkThumb" alt="Alternate Text" /></td>
                     <td> <a href="@($"/DrinkById/{item.idDrink}")" class="nav-link">@item.idDrink</a> </td>
                 </tr>
             }
@@ -51,6 +57,9 @@
 
     List<DrinkModelData> randomdrink;
     string errorString;
+    int orderNumber;
+
+   
 
     protected override async Task OnInitializedAsync()
     {
@@ -69,4 +78,4 @@
         randomdrink = drink;
     }
 }
-        }
+            }

@@ -126,12 +126,15 @@ using RestSharp.Deserializers;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 49 "C:\Users\Jamey\source\repos\CocktailDB\Pages\WithVodka.razor"
+#line 55 "C:\Users\Jamey\source\repos\CocktailDB\Pages\WithVodka.razor"
        
 
 
     List<DrinkModelData> randomdrink;
     string errorString;
+    int orderNumber;
+
+   
 
     protected override async Task OnInitializedAsync()
     {
